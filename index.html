@@ -5,23 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quotes Website</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div id="quotes"></div>
-    <div id="author"></div>
-    <button id="nq">Next Quote</button>
+    <div id="quotes" class="text"></div>
+        <div id="author" class="author"></div>
+        <button id="nq" class="button">Next Quote</button>
+        <button id ="tweetnow">Tweet Now</button>
+<div class="container">
+<div class="inner">
+<div class="box">
+    <p class="number">
+        <img src="./twitter.png" title="tweetme" id="tweet"/>
+    </p>
+        
+</div>
+</div>
+</div>
+
+
 </body>
 
 <script>
     let quotes = document.getElementById("quotes");
     let author = document.getElementById("author");
+    let tweetnow = document.getElementById("tweetnow");
     let newQuote = document.getElementById("nq");
     let realData="";
     const getNewQuotes =()=>{
         let randomNum = Math.floor(Math.random()*10);
         console.log(realData[randomNum].text)
         quotes.innerText=`${realData[randomNum].text}`;
-        author.innerText=`${realData[randomNum].author}`;
+        author.innerText=`By ${realData[randomNum].author}`;
+        return quotes.innerText;
+    }
+//?text=${realData[randomNum].text}
+    const tweetPost =()=>
+    {
+        tweeet = getNewQuotes();
+        console.log(tweeet ,"hiiiiii")
+        let tweet = `https://twitter.com/intent/tweet?text=${tweeet}`;
+        window.open(tweet)
     }
     const getQuotes =async()=>{
         const api ="https://type.fit/api/quotes";
@@ -34,6 +59,7 @@
         }catch(error){}
     }
     newQuote.addEventListener("click",getNewQuotes);
+    tweetnow.addEventListener("click",tweetPost);
     getQuotes();
 
 </script>
