@@ -42,6 +42,7 @@
     transform: rotate(45deg);
     display: flex;
     align-items: flex-end;
+    border: none;
     justify-content: center;
     box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.232);
 }
@@ -50,7 +51,6 @@
     height: 25px;
     width: 25px;
     padding: 5px;
-    transform: rotate(-45deg);
     animation: rotweet 1s linear;
 }
 
@@ -65,14 +65,13 @@
 }
 
 .text {
-    padding: 10%;
-    opacity: 0.2;
-    font-size: 50px;
+    padding: 5%;
+    font-size: 20px;
     padding-bottom: 0%;
+    opacity: 2;
 }
 
 .start-quote {
-  
 }
 
 #quotes {
@@ -88,7 +87,7 @@
 
 }
 
-.newQ {
+#nq {
     width: 100%;
     font-size: 18px;
     text-transform: capitalize;
@@ -106,4 +105,6 @@
     justify-content: center;
     align-items: center;
     letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
 }
